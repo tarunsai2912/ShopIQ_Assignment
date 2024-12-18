@@ -1,15 +1,13 @@
 {
-    "version": 2,
-    "buildCommand": "next build",
-    "outputDirectory": "out",
-    "routes": [
+    "builds": [
       {
-        "src": "/api/(.*)",
-        "dest": "/api/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/$1"
+        "src": "next.config.js",
+        "use": "@vercel/next"
       }
+    ],
+    "cache": [
+      "node_modules",
+      ".next/cache"
     ]
-}
+  }
+  
