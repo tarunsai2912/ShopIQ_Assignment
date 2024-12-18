@@ -14,3 +14,10 @@ export default async function CategoriesPage() {
     </Layout>
   );
 }
+
+export async function generateStaticParams() {
+  const categories = await fetchCategories(); // Fetch all categories from your API
+  return categories.map((category) => ({
+    category: category.toLowerCase().replace(/\s+/g, '-'),
+  }));
+}
