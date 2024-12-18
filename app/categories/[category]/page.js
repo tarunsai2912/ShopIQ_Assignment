@@ -17,12 +17,23 @@ export default async function CategoryPage({ params }) {
   );
 }
 
-export async function generateStaticParams() {
-  const categories = await fetchCategories(); // Fetch all categories
-  return categories.map((category) => ({
-    category: category.toLowerCase().replace(/\s+/g, '-'), // Generate slugs
-  }));
+export async function getStaticPaths() { 
+  const categories = await fetchCategories(); 
+  const paths = categories.map((category) => ({ params: { category: category.toLowerCase().replace(/\s+/g, '-') }, })); 
+  return { paths, fallback: false }; 
+} 
+
+export async function getStaticProps({ params }) { 
+  const products = await fetchProductsByCategory(params.category); 
+  return { props: { products: products.products, category: params.category, }, }; 
 }
+
+// export async function generateStaticParams() {
+//   const categories = await fetchCategories(); // Fetch all categories
+//   return categories.map((category) => ({
+//     category: category.toLowerCase().replace(/\s+/g, '-'), // Generate slugs
+//   }));
+// }
 
 // export async function generateStaticParams() {
 //   const categories = await fetchCategories(); // Fetch categories from API
