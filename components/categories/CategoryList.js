@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { Grid3X3, Smartphone, Watch, Diamond, Laptop, Perfume, Shirt } from 'lucide-react';
+import { Grid3X3, Smartphone, Watch, Diamond, Laptop, Shirt } from 'lucide-react';
 
 const categoryIcons = {
   'smartphones': Smartphone,
   'laptops': Laptop,
-  'fragrances': Perfume,
+  'fragrances': Grid3X3,
   'skincare': Diamond,
   'groceries': Grid3X3,
   'home-decoration': Grid3X3,
