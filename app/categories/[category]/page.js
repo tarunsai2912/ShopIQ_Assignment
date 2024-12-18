@@ -18,6 +18,13 @@ export default async function CategoryPage({ params }) {
 }
 
 export async function generateStaticParams() {
-  const categories = await fetchCategories(); // Fetch categories from API
-  return categories.map((category) => ({ category }));
+  const categories = await fetchCategories(); // Fetch all categories
+  return categories.map((category) => ({
+    category: category.toLowerCase().replace(/\s+/g, '-'), // Generate slugs
+  }));
 }
+
+// export async function generateStaticParams() {
+//   const categories = await fetchCategories(); // Fetch categories from API
+//   return categories.map((category) => ({ category }));
+// }
