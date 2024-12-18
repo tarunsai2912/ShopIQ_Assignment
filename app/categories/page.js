@@ -16,8 +16,9 @@ export default async function CategoriesPage() {
 }
 
 export async function generateStaticParams() {
-  const categories = await fetchCategories(); // Fetch all categories from your API
+  const categories = await fetchCategories(); // Fetch all categories
+
   return categories.map((category) => ({
-    category: category.toLowerCase().replace(/\s+/g, '-'),
+    category: category.toLowerCase().replace(/\s+/g, '-'), // Generate slugs
   }));
 }
