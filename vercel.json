@@ -1,5 +1,15 @@
 {
-    "rewrites": [
-        { "source": "/(.*)", "destination": "/" }
+    "version": 2,
+    "buildCommand": "next build",
+    "outputDirectory": "out",
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/api/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/$1"
+      }
     ]
 }
