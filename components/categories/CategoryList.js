@@ -32,16 +32,12 @@ export default function CategoryList({ categories }) {
         const Icon = categoryIcons[categoryName] || Grid3X3;
 
         return (
-          <Link
-            key={categoryName}
-            href={`/categories/${categoryName}`}
-            className="group bg-card hover:bg-accent rounded-lg p-6 text-center transition-colors"
-          >
+          <div className="group bg-card hover:bg-accent rounded-lg p-6 text-center transition-colors">
             <Icon className="w-12 h-12 mx-auto mb-4 text-primary group-hover:text-primary/80 transition-colors" />
             <h3 className="text-lg font-semibold capitalize">
               {categoryName.replace('-', ' ')}
             </h3>
-          </Link>
+          </div>
         );
       })}
     </div>
